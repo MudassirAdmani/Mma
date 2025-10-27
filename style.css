@@ -1,0 +1,449 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --color-primary: #e65200;
+    /* Orange/Red from logo, for action */
+    --color-secondary: #000000;
+    /* Black */
+    --color-text: #333333;
+    --color-light-bg: #f7f7f7;
+    --color-white: #ffffff;
+    --font-heading: 'Oswald', sans-serif;
+    /* Used for impactful/bold text */
+    --font-body: 'Montserrat', sans-serif;
+    /* Used for clean, modern body text */
+    --max-width: 1200px;
+    --transition-speed: 0.3s;
+}
+
+/* Import New Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Oswald:wght@500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    line-height: 1.6;
+    background-color: var(--color-white);
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Typography --- */
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    color: var(--color-secondary);
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    /* Use Oswald-like font for buttons */
+    font-family: var(--font-heading);
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    background-color: #cc4500;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    padding: 10px 28px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* --- 1. Header & Navigation --- */
+.main-header {
+    background-color: var(--color-white);
+    padding: 15px 0;
+    border-bottom: 1px solid #eeeeee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo (Left) */
+.logo {
+    flex-basis: 30%;
+    /* Take up 30% of the space on the left */
+}
+
+.logo img {
+    height: 50px;
+    vertical-align: middle;
+}
+
+/* Business Name (Center - Desktop Only) */
+.business-name {
+    flex-grow: 1;
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--color-secondary);
+    letter-spacing: 2px;
+}
+
+/* Navigation (Right) */
+.main-nav {
+    flex-basis: 30%;
+    /* Take up 30% of the space on the right */
+    text-align: right;
+}
+
+.main-nav a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: var(--font-heading);
+    /* Use heading font for menu */
+    font-weight: 500;
+    margin-left: 30px;
+    padding-bottom: 5px;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--color-primary);
+}
+
+
+/* --- 2. Hero Section --- */
+.hero-section {
+    position: relative;
+    height: 80vh;
+    min-height: 550px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    color: var(--color-white);
+    z-index: 10;
+    text-align: center;
+    padding: 0 20px;
+    max-width: 900px;
+}
+
+.brand-tagline {
+    font-family: var(--font-heading);
+    font-size: 2.2em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 0 0 30px 0;
+    line-height: 1.2;
+    color: var(--color-white);
+    text-transform: uppercase;
+}
+
+
+/* --- Section Padding --- */
+section {
+    padding: 80px 0;
+}
+
+/* --- 3. About Section (2-column layout) --- */
+.about-section {
+    background-color: var(--color-light-bg);
+}
+
+.about-grid {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+/* Left Column - Slider Placeholder */
+.about-slider-container {
+    flex: 1;
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.about-slide.current-slide {
+    opacity: 1;
+}
+
+/* Right Column - Mission Text */
+.about-content {
+    flex: 1;
+    text-align: right;
+    /* Align content to the right side */
+}
+
+.about-content h2 {
+    text-align: right;
+    margin-bottom: 20px;
+    font-size: 2.2em;
+}
+
+.mission-statement-body {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--color-secondary);
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+
+/* --- 4. Contact Section --- */
+.contact-section {
+    background-color: var(--color-light-bg);
+    padding: 0;
+}
+
+.contact-grid {
+    display: flex;
+}
+
+.contact-map {
+    flex: 1;
+}
+
+.contact-map iframe {
+    height: 100%;
+    min-height: 500px;
+}
+
+/* Contact Form Container - Background removed */
+.contact-form-container {
+    flex: 1;
+    padding: 60px 40px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-form-container h2 {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-family: var(--font-body);
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1em;
+}
+
+
+/* --- Footer --- */
+.main-footer {
+    background-color: var(--color-secondary);
+    color: #cccccc;
+    padding: 25px 0;
+    font-size: 0.9em;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-info {
+    text-align: left;
+}
+
+.footer-social {
+    text-align: right;
+}
+
+.footer-social a {
+    color: var(--color-white);
+    font-size: 1.5em;
+    margin-left: 20px;
+    transition: color var(--transition-speed);
+}
+
+.footer-social a:hover {
+    color: var(--color-primary);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+    /* Tablet breakpoint: Stack sections */
+
+    .brand-tagline {
+        font-size: 1.8em;
+    }
+
+    .about-grid,
+    .contact-grid {
+        flex-direction: column;
+    }
+
+    .about-slider-container {
+        height: 300px;
+        margin-bottom: 30px;
+    }
+
+    /* Reset alignment for mobile stack */
+    .about-content {
+        text-align: center;
+    }
+
+    .about-content h2 {
+        text-align: center;
+    }
+
+    .contact-form-container {
+        padding: 40px 20px;
+    }
+
+    .contact-map iframe {
+        min-height: 350px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-info,
+    .footer-social {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-social {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Mobile breakpoint: Header adjustments */
+
+    .header-content {
+        /* Use space-around to distribute logo and links */
+        justify-content: space-around;
+        padding-bottom: 5px;
+    }
+
+    /* 1. Make business name disappear */
+    .business-name {
+        display: none;
+    }
+
+    /* 2. Set Logo and Nav to auto width and align center */
+    .logo,
+    .main-nav {
+        flex-basis: auto;
+        width: auto;
+    }
+
+    .logo {
+        text-align: left;
+        /* Keep logo on the left edge */
+    }
+
+    .main-nav {
+        text-align: right;
+        /* Keep nav links on the right edge */
+    }
+
+    /* 3. Ensure navigation links stay on one line and are compressed */
+    .main-nav a {
+        margin-left: 15px;
+        /* Reduced margin */
+        font-size: 0.85em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .brand-tagline {
+        font-size: 1.4em;
+    }
+}
